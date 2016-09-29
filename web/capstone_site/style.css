@@ -1,0 +1,70 @@
+
+body {
+  background-color: 	#ffffff;
+}
+
+.z-depth-3 {
+  color: #000000
+}
+
+.card {
+    background-color: #FFFFFF;
+    position:relative;
+    margin-bottom: 7%;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+  color: #444444;
+}
+
+ H3, H4, H5 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  color: #444444;
+}
+
+H2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+  color: #444444;
+  text-align: center;
+}
+
+H1 {
+  font-family: 'Lobster', cursive;
+  font-weight: bold;
+}
+
+.card-content {
+  margin-bottom: 3%;
+  margin-left: 1%;
+}
+
+.menu li a {
+  text-decoration: none;
+}
+
+.home {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.bios {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 80%;
+    padding: 20px;
+}
+
+.prof{
+  height: 200px;
+}
+
+table {
+  width: 90%;
+}

@@ -1,4 +1,4 @@
-name: bigvis
+name: selene
 channels:
 - conda-forge
 - defaults

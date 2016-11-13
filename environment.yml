@@ -1,191 +1,130 @@
-name: selene
-channels:
+name: test
+channels: !!python/tuple
 - conda-forge
 - defaults
 - jlaura
 dependencies:
-- appnope=0.1.0=py35_0
 - bokeh=0.12.3=py35_0
-- boto3=1.4.0=py35_0
-- chardet=2.3.0=py35_0
-- backports.shutil_get_terminal_size=1.0.0=py35_0
-- botocore=1.4.49=py35_0
-- bottleneck=1.0.0=np111py35_0
-- ca-certificates=2016.8.31=0
-- certifi=2016.8.31=py35_0
-- click=6.6=py35_1
-- cloudpickle=0.2.1=py35_2
-- curl=7.49.1=1
-- cycler=0.10.0=py35_0
-- cyordereddict=1.0.0=py35_1
-- dask=0.11.1=py35_0
-- decorator=4.0.10=py35_0
-- distributed=1.13.3=py35_0
-- docutils=0.12=py35_0
-- entrypoints=0.2.2=py35_0
-- freetype=2.6.3=1
-- h5netcdf=0.3.1=py35_0
-- h5py=2.6.0=np111py35_6
-- hdf4=4.2.12=0
-- hdf5=1.8.17=7
-- heapdict=1.0.0=py35_0
-- ipykernel=4.5.0=py35_0
-- ipython=5.1.0=py35_0
-- ipython_genutils=0.1.0=py35_0
-- ipywidgets=5.2.2=py35_0
-- jinja2=2.8=py35_1
-- jmespath=0.9.0=py35_0
-- joblib=0.10.2=py35_0
-- jpeg=9b=0
-- jsonschema=2.5.1=py35_0
-- jupyter_client=4.4.0=py35_0
-- jupyter_console=5.0.0=py35_0
-- jupyter_core=4.2.0=py35_0
-- libgfortran=3.0.0=0
-- libnetcdf=4.4.1=0
-- libpng=1.6.24=0
-- libsodium=1.0.10=0
-- libtiff=4.0.6=7
-- locket=0.2.0=py35_1
-- markupsafe=0.23=py35_0
-- matplotlib=1.5.3=np111py35_2
-- mistune=0.7.3=py35_0
-- msgpack-python=0.4.8=py35_0
-- multipledispatch=0.4.8=py35_0
-- nbconvert=4.2.0=py35_0
-- nbformat=4.1.0=py35_0
-- ncurses=5.9=9
-- netcdf4=1.2.4=np111py35_2
-- networkx=1.11=py35_0
-- notebook=4.2.3=py35_0
-- openssl=1.0.2h=2
-- orange3=3.3.7=np111py35_0
-- pandas=0.18.1=np111py35_1
-- partd=0.3.6=py35_0
-- pexpect=4.2.1=py35_0
-- pickleshare=0.7.3=py35_0
-- pillow=3.4.2=py35_0
-- pip=8.1.2=py35_0
-- prompt_toolkit=1.0.7=py35_0
-- psutil=4.3.0=py35_0
-- ptyprocess=0.5.1=py35_0
-- pygments=2.1.3=py35_1
-- pymongo=3.2.2=py35_0
-- pyparsing=2.1.10=py35_0
-- pyqt=4.11.4=py35_0
-- python=3.5.2=2
-- python-dateutil=2.5.3=py35_0
-- pytz=2016.6.1=py35_0
-- pyyaml=3.11=py35_0
-- pyzmq=15.4.0=py35_0
-- qtconsole=4.2.1=py35_0
-- readline=6.2=0
-- requests=2.11.1=py35_0
-- s3fs=0.0.7=py35_0
-- s3transfer=0.1.8=py35_0
-- setuptools=26.1.1=py35_0
-- simplegeneric=0.8.1=py35_0
-- sip=4.18=py35_0
-- six=1.10.0=py35_0
-- sqlite=3.13.0=1
-- terminado=0.6=py35_0
-- tk=8.5.19=0
-- toolz=0.8.0=py35_0
-- tornado=4.4.1=py35_1
-- traitlets=4.3.0=py35_0
-- wcwidth=0.1.7=py35_0
-- wheel=0.29.0=py35_0
-- widgetsnbextension=1.2.6=py35_3
-- xarray=0.8.2=py35_0
-- xz=5.2.2=0
-- yaml=0.1.6=0
-- zeromq=4.1.5=0
-- zict=0.0.3=py35_0
-- zlib=1.2.8=3
+- conda-forge::backports.shutil_get_terminal_size=1.0.0=py35_0
+- conda-forge::blas=1.1=openblas
+- conda-forge::boto3=1.4.1=py35_0
+- conda-forge::botocore=1.4.49=py35_0
+- conda-forge::bottleneck=1.2.0=np111py35_0
+- conda-forge::cairo=1.12.18=8
+- conda-forge::click=6.6=py35_0
+- conda-forge::cloudpickle=0.2.1=py35_2
+- conda-forge::curl=7.49.1=1
+- conda-forge::cycler=0.10.0=py35_0
+- conda-forge::cyordereddict=1.0.0=py35_1
+- conda-forge::dask=0.11.1=py35_0
+- conda-forge::decorator=4.0.10=py35_0
+- conda-forge::distributed=1.13.3=py35_0
+- conda-forge::docutils=0.12=py35_0
+- conda-forge::entrypoints=0.2.2=py35_0
+- conda-forge::fontconfig=2.11.1=3
+- conda-forge::freetype=2.6.3=1
+- conda-forge::gettext=0.19.7=1
+- conda-forge::glib=2.48.0=4
+- conda-forge::h5netcdf=0.3.1=py35_0
+- conda-forge::h5py=2.6.0=np111py35_6
+- conda-forge::harfbuzz=1.0.6=0
+- conda-forge::hdf4=4.2.12=0
+- conda-forge::hdf5=1.8.17=7
+- conda-forge::heapdict=1.0.0=py35_0
+- conda-forge::icu=56.1=4
+- conda-forge::ipykernel=4.5.0=py35_0
+- conda-forge::ipython=5.1.0=py35_1
+- conda-forge::ipython_genutils=0.1.0=py35_0
+- conda-forge::ipywidgets=5.2.2=py35_2
+- conda-forge::jinja2=2.8=py35_1
+- conda-forge::jmespath=0.9.0=py35_0
+- conda-forge::jpeg=9b=0
+- conda-forge::jsonschema=2.5.1=py35_0
+- conda-forge::jupyter_client=4.4.0=py35_0
+- conda-forge::jupyter_console=5.0.0=py35_0
+- conda-forge::jupyter_core=4.2.0=py35_0
+- conda-forge::libffi=3.2.1=2
+- conda-forge::libiconv=1.14=3
+- conda-forge::libnetcdf=4.4.1=0
+- conda-forge::libpng=1.6.26=0
+- conda-forge::libsodium=1.0.10=0
+- conda-forge::libtiff=4.0.6=7
+- conda-forge::libxml2=2.9.4=3
+- conda-forge::locket=0.2.0=py35_1
+- conda-forge::markupsafe=0.23=py35_0
+- conda-forge::matplotlib=1.5.3=np111py35_2
+- conda-forge::mistune=0.7.3=py35_0
+- conda-forge::msgpack-python=0.4.8=py35_0
+- conda-forge::multipledispatch=0.4.8=py35_0
+- conda-forge::nbconvert=4.2.0=py35_0
+- conda-forge::nbformat=4.1.0=py35_0
+- conda-forge::netcdf4=1.2.4=np111py35_2
+- conda-forge::networkx=1.11=py35_0
+- conda-forge::notebook=4.2.3=py35_0
+- conda-forge::numpy=1.11.2=py35_blas_openblas_200
+- conda-forge::openblas=0.2.18=6
+- conda-forge::pandas=0.19.1=np111py35_0
+- conda-forge::pango=1.40.1=0
+- conda-forge::partd=0.3.5=py35_0
+- conda-forge::pcre=8.38=1
+- conda-forge::pexpect=4.2.1=py35_0
+- conda-forge::pickleshare=0.7.3=py35_0
+- conda-forge::pillow=3.4.2=py35_0
+- conda-forge::pip=9.0.1=py35_0
+- conda-forge::pixman=0.32.6=0
+- conda-forge::prompt_toolkit=1.0.9=py35_0
+- conda-forge::psutil=4.3.0=py35_0
+- conda-forge::ptyprocess=0.5.1=py35_0
+- conda-forge::pygments=2.1.3=py35_1
+- conda-forge::pymongo=3.2.2=py35_0
+- conda-forge::pyparsing=2.1.10=py35_0
+- conda-forge::pyqt=4.11.4=py35_1
+- conda-forge::python-dateutil=2.5.3=py35_0
+- conda-forge::pytz=2016.7=py35_0
+- conda-forge::pyyaml=3.11=py35_0
+- conda-forge::pyzmq=16.0.1=py35_0
+- conda-forge::qt=4.8.7=3
+- conda-forge::qtconsole=4.2.1=py35_0
+- conda-forge::requests=2.11.1=py35_0
+- conda-forge::s3fs=0.0.7=py35_0
+- conda-forge::s3transfer=0.1.8=py35_0
+- conda-forge::scipy=0.18.1=np111py35_blas_openblas_200
+- conda-forge::simplegeneric=0.8.1=py35_0
+- conda-forge::sip=4.18=py35_0
+- conda-forge::six=1.10.0=py35_1
+- conda-forge::terminado=0.6=py35_0
+- conda-forge::toolz=0.8.0=py35_0
+- conda-forge::tornado=4.4.2=py35_0
+- conda-forge::traitlets=4.3.0=py35_0
+- conda-forge::wcwidth=0.1.7=py35_0
+- conda-forge::widgetsnbextension=1.2.6=py35_3
+- conda-forge::xarray=0.8.2=py35_0
+- conda-forge::yaml=0.1.6=0
+- conda-forge::zeromq=4.1.5=0
+- conda-forge::zict=0.1.0=py35_0
 - datashader=0.4.0=py35_0
 - datashape=0.5.2=py35_0
 - jupyter=1.0.0=py35_3
+- libgfortran=3.0.0=1
 - llvmlite=0.14.0=py35_0
-- mkl=11.3.3=0
-- mongodb=3.3.9=0
 - numba=0.29.0=np111py35_0
-- numpy=1.11.1=py35_0
 - odo=0.5.0=py35_1
-- pyqtgraph=0.9.10=py35_1
-- python.app=1.2=py35_4
-- qt=4.8.7=4
-- scikit-learn=0.17.1=np111py35_2
-- scipy=0.18.1=np111py35_0
+- openssl=1.0.2j=0
+- python=3.5.2=0
+- readline=6.2=2
+- setuptools=27.2.0=py35_0
+- sqlite=3.13.0=0
 - tblib=1.3.0=py35_0
-- xlrd=1.0.0=py35_0
+- tk=8.5.18=0
+- wheel=0.29.0=py35_0
+- xz=5.2.2=0
+- zlib=1.2.8=3
 - pip:
   - backports.shutil-get-terminal-size==1.0.0
-  - botocore==1.4.49
-  - bottleneck==1.0.0
-  - certifi==2016.8.31
-  - click==6.6
-  - cloudpickle==0.2.1
-  - cycler==0.10.0
-  - cyordereddict==1.0.0
-  - dask==0.11.1
-  - decorator==4.0.10
-  - distributed==1.13.3
-  - docutils==0.12
-  - h5netcdf==0.3.1
-  - h5py==2.6.0
-  - heapdict==1.0.0
-  - ipykernel==4.5.0
-  - ipython==5.1.0
   - ipython-genutils==0.1.0
-  - ipywidgets==5.2.2
-  - jinja2==2.8
-  - jmespath==0.9.0
-  - joblib==0.10.2
-  - jsonschema==2.5.1
   - jupyter-client==4.4.0
   - jupyter-console==5.0.0
   - jupyter-core==4.2.0
-  - locket==0.2.0
-  - markupsafe==0.23
-  - matplotlib==1.5.3
-  - mistune==0.7.3
-  - msgpack-python==0.4.8
-  - multipledispatch==0.4.8
-  - nbconvert==4.2.0
-  - nbformat==4.1.0
-  - netcdf4==1.2.4
-  - networkx==1.11
-  - notebook==4.2.3
-  - orange3==3.3.7
-  - pandas==0.18.1
-  - partd==0.3.6
-  - pexpect==4.2.1
-  - pickleshare==0.7.3
-  - pillow==3.4.2
-  - pip==8.1.2
-  - prompt-toolkit==1.0.7
-  - psutil==4.3.0
-  - ptyprocess==0.5.1
-  - pygments==2.1.3
-  - pymongo==3.2.2
-  - pyparsing==2.1.10
-  - python-dateutil==2.5.3
-  - pytz==2016.6.1
-  - pyyaml==3.11
-  - pyzmq==15.4.0
-  - qtconsole==4.2.1
-  - requests==2.11.1
-  - s3fs==0.0.7
-  - s3transfer==0.1.8
-  - setuptools==26.1.1.post20160901
-  - simplegeneric==0.8.1
-  - six==1.10.0
-  - terminado==0.6
-  - toolz==0.8.0
-  - tornado==4.4.1
-  - traitlets==4.3.0
-  - wcwidth==0.1.7
-  - wheel==0.29.0
-  - widgetsnbextension==1.2.6
-  - xarray==0.8.2
-  - zict==0.0.3
+  - prompt-toolkit==1.0.9
+prefix: /home/kelvin/anaconda3/envs/selene
+

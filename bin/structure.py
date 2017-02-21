@@ -15,7 +15,7 @@ from pymongo.errors import OperationFailure
 
 import matplotlib.pyplot as plt
 
-import numpy
+import numpy as np
 import argparse
 
 # the list of wavelengths in increasing order
@@ -56,7 +56,7 @@ wavelengths = [512.6, 518.4, 524.7, 530.4, 536.5, 542.8, 548.7, 554.5, 560.5,
 def clamp_longitude(angle):
     """
     Returns the angle limited to the range [-180, 180], the original
-    data is in the range [0,360] but mongo used [-180,180].
+    data is in the range [0,360] but mongo uses [-180,180].
 
     Parameters
     ----------
@@ -73,7 +73,7 @@ def clamp_longitude(angle):
 
 def get_ordered_vals(dictionary):
     """
-    Given a dictionary, will return the values of the dinctionary
+    Given a dictionary, will return the values of the dictionary
     such that they are in the order of their keys in acending order
 
     Parameters
@@ -86,7 +86,7 @@ def get_ordered_vals(dictionary):
     : float
        ordered list of values
     """
-    return [dictionary[str(wavelen)] for wavelen in wavelengths ]
+    return [dictionary[str(wavelen)] for wavelen in wavelengths]
 
 
 
@@ -117,7 +117,32 @@ if __name__ == '__main__':
 
     print('Authentication for spectral_profiler & selene: OK')
 
-    for spot in spot_data:
+    # Aliases for databases & collections
+    sp = client.spectral_profiler
+    spot_data = sp.spot_data
+    image_data = sp.image_data
+
+    # Get all the data
+    images = image_data.find()
+    spots = spot_data.find()
+
+    # Get all the counts
+    print('Getting counts, this may take a minute...')
+    image_count = images.count()
+    spot_count = spots.count()
+
+    print('Number of images: {}'.format(image_count))
+    print('Number of spots: {}'.format(spot_count))
+
+    # preallocate the array used for insertion
+    image_array = np.empty((image_count,))
+    print(image_array.shape)
+
+
+    exit()
+    # get the first spot
+    spot = spots.next()
+    for i in range(num_docs):
         # Get all the fields and convert them fron strings to dicts
         python_string = 'ref1_data = ' + spot["REF1"]
         exec(python_string)
@@ -140,7 +165,7 @@ if __name__ == '__main__':
 
         # insert the new document
         point_data.insert_one({
-          'loc' : { 'type': "Point", 'coordinates': [clamp_longitude(meta_data['CENTER_LONGITUDE']), meta_data['CENTER_LATITUDE'] ] },
+          'loc' : { 'p_key': i, 'type': "Point", 'coordinates': [clamp_longitude(meta_data['CENTER_LONGITUDE']), meta_data['CENTER_LATITUDE'] ] },
           'ref1' : ref1,
           'ref2' : ref2,
           'raw' : raw,
@@ -148,3 +173,4 @@ if __name__ == '__main__':
           'meta' : meta_data,
           'file' : file
         })
+        spot = spot_data.next()

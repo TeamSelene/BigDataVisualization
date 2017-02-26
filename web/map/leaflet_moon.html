@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <link rel="stylesheet" href="src/Control.LatLng.css" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  <script src="src/Control.LatLng.js"></script>
+
+	<style>
+		#map {
+			width:800px;
+			height: 600px;
+		}
+	</style>
+</head>
+<body>
+<div id='map' class='map'></div>
+<script type="text/javascript">
+	var map = L.map('map', {
+                    crs: L.CRS.EPSG4326,
+		                center: [0, 0],
+		                zoom: 2
+	});
+
+	var wmsLayer = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+	   layers: 'LOLA_color'
+	   }).addTo(map);
+
+
+  
+
+
+
+
+</script>
+</body>
+</html>

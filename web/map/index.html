@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+      <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
+    <script type="text/javascript" src="http://astrowebmaps.wr.usgs.gov/webmapatlas/js/AstroWebMaps.js"></script>
+    <title>OpenLayers 3 example</title>
+  </head>
+  <body>
+    <h2>My Map</h2>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+      var layers = [
+        new ol.layer.Image({
+          extent : [0, -90, 360, 90],
+            source: new ol.source.ImageWMS({
+              url: 'http://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map',
+              params: {
+                'LAYERS': 'LOLA_color',
+                'FORMAT': 'image/png',
+              }
+            })
+          })
+        ];
+
+        var map = ol.Map({
+          layers: layers,
+          target: 'map',
+          view: new ol.View({
+            center: [90, -35],
+            zoom: 4
+          })
+      });
+    </script>
+  </body>
+</html>

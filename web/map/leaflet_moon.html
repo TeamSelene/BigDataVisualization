@@ -19,18 +19,24 @@
 	var map = L.map('map', {
                     crs: L.CRS.EPSG4326,
 		                center: [0, 0],
-		                zoom: 2
+		                zoom: 2,
+                    layers: baseLayers
 	});
 
 	var wmsLayer = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
 	   layers: 'LOLA_color'
 	   }).addTo(map);
 
+  var wmsLayerTwo = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+	   layers: 'LOLA_steel'
+	   });
 
-  
+  var baseLayers = {
+    'USGS_Map Default': wmsLayer,
+    'USGS_Map Different': wmsLayerTwo
+  };
 
-
-
+  L.control.layers(baseLayers).addTo(map);
 
 </script>
 </body>

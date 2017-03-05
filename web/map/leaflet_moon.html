@@ -3,7 +3,7 @@
 <head>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
   <link rel="stylesheet" href="src/Control.LatLng.css" />
-	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -12,12 +12,12 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="src/Control.LatLng.js"></script>
 
-	<style>
-		#map {
-			width:800px;
-			height: 600px;
-		}
-	</style>
+  <style>
+    #map {
+      width:800px;
+      height: 600px;
+    }
+  </style>
 </head>
 <body>
 
@@ -64,24 +64,49 @@ var wavelengths = [512.6, 518.4, 524.7, 530.4, 536.5, 542.8, 548.7, 554.5, 560.5
                2564.0, 2572.0, 2579.9, 2587.9];
 
 var popup = null;
-	var map = L.map('map', {
+  var map = L.map('map', {
                     crs: L.CRS.EPSG4326,
-		                center: [0, 0],
-		                zoom: 2,
+                    center: [0, 0],
+                    zoom: 2,
                     layers: baseLayers
-	});
+  });
 
-	var wmsLayer = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
-	   layers: 'LOLA_color'
-	   }).addTo(map);
+  var wmsLayer = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+     layers: 'LOLA_color'
+     }).addTo(map);
 
-  var wmsLayerTwo = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
-	   layers: 'LOLA_steel'
-	   });
+  var LOLA_Steel = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+     layers: 'LOLA_steel'
+     });
+
+  var LOLA_BW = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+     layers: 'LOLA_bw'
+     });
+
+  var LROC_WAC = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+     layers: 'LROC_WAC'
+     });
+
+  var KaguyaTC_Ortho = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+     layers: 'KaguyaTC_Ortho'
+     });
+
+  var LO = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+     layers: 'LO'
+     });
+
+  var UV_LO = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
+     layers: 'uv_lo'
+     });
 
   var baseLayers = {
-    'USGS_Map Default': wmsLayer,
-    'USGS_Map Different': wmsLayerTwo
+    'USGS_Map Default (LOLA_Color)': wmsLayer,
+    'USGS_Map LOLA_Steel': LOLA_Steel,
+    'USGS_Map LOLA_BW': LOLA_BW,
+    'USGS_Map LROC_WAC': LROC_WAC,
+    'USGS_Map KaguyaTC_Ortho': KaguyaTC_Ortho,
+    'USGS_Map LO': LO,
+    'USGS_Map UV_LO': UV_LO
   };
 
   L.control.layers(baseLayers).addTo(map);

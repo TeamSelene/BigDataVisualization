@@ -109,6 +109,7 @@ var popup = null;
   };
 
   L.control.layers(baseLayers).addTo(map);
+  let geoJSONLayer = L.geoJSON().addTo(map);
 
 
 
@@ -170,4 +171,7 @@ window.onload = function(){
 
 };
 </script>
+
+<script src="src/db.js"></script>
+<script src="src/main.js"></script>
 </html>

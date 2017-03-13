@@ -33,7 +33,7 @@ L.Control.LatLng = L.Control.extend({
 		L.DomEvent
 			.on(this._lat, 'change', this._updateMap, this)
 			.on(this._lng, 'change', this._updateMap, this)
-			.on(this._zoom, 'change', this._updateMap, this);
+			.on(this._zoom, 'change', this._zoomMap, this);
 
 		// Update control after view changes
 		L.DomEvent.on(map, 'viewreset moveend drag', this._updateControl, this);
@@ -63,6 +63,12 @@ L.Control.LatLng = L.Control.extend({
 	_updateMap: function () {
 		if (this._map) {
 			this._map.panTo(this.getValue())
+		}
+	},
+	_zoomMap: function () {
+		if(this._map) {
+			console.log(this.getValue());
+			this._map.setZoom(this.getValue()[2]);
 		}
 	}
 });

@@ -20,8 +20,8 @@
 
 <div id='map' class='map'></div>
 
-<div id="ref-box" width="400" height="400" style="max-width:600px; max-height: 300px; float: left;" className="col-xs-12">
-  <canvas id="refGraph" width="600" height="400"></canvas>
+<div id="ref-box" width="800" height="400" style="max-width:800px; max-height: 300px; float: left;" className="col-xs-12">
+  <canvas id="refGraph" width="800" height="400"></canvas>
 </div>
 </body>
 <script type="text/javascript">
@@ -109,19 +109,21 @@ var popup = null;
 
   function onEachFeature(point, layer) {
       layer.on('click', function (e) {
+        map.panTo(L.latLng(point.coordinates[1], point.coordinates[0]));
         console.log(point);
         var ctx = document.getElementById('refGraph');
 
         let ref = point.ref1;
         console.log(ref);
 
-        var chdata = {
+        let chdata = {
           labels: wavelengths,
           datasets: [
               {
                   label: "REF 1",
                   lineTension: 0.1,
                   borderColor: "rgba(75,192,192,1)",
+                  borderWidth: 1,
                   pointBorderColor: "rgba(75,192,192,1)",
                   pointBackgroundColor: "#fff",
                   pointBorderWidth: 1,
@@ -137,7 +139,7 @@ var popup = null;
           ]
       };
 
-        var refGraph = new Chart(ctx, {
+        let refGraph = new Chart(ctx, {
           type: 'line',
           data: chdata,
           height: 400,
@@ -160,24 +162,24 @@ var popup = null;
   }).addTo(map);
 
 
-window.onload = function(){
-    map.on('click', e => {
-      var latlng = L.latLng(e.latlng.lat, e.latlng.lng);
+// window.onload = function(){
+//     map.on('click', e => {
+//       var latlng = L.latLng(e.latlng.lat, e.latlng.lng);
+//
+//       var div = $('<canvas id="ref" style="width: 200px; height: 75px;"></canvas>');
+//       popup = L.popup()
+//       .setLatLng(latlng)
+//       .bindPopup(div)
+//       .openOn(map);
+//
+//       // console.log(ref);
+//
+//
+//   })
 
-      var div = $('<canvas id="ref" style="width: 200px; height: 75px;"></canvas>');
-      popup = L.popup()
-      .setLatLng(latlng)
-      .bindPopup(div)
-      .openOn(map);
-
-      // console.log(ref);
 
 
-  })
-
-
-
-};
+//};
 </script>
 <script src="lib/base64js.min.js"></script>
 

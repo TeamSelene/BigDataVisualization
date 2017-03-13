@@ -5,7 +5,7 @@ function getQuery() {
     const COLLECTION = "images";
 
     queryString = $.param({
-        limit: 100
+        limit: 12
     })
     // console.log(queryString);
     uriQuery = `http://${URL}:${PORT}/${DB}/${COLLECTION}/?${queryString}`;

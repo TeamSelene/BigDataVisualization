@@ -9,9 +9,16 @@ $(window).on("load", () => {
 
 function plotPoints(geoJSONLayer, data) {
     // Grab the points of every element.
-    let geoDataPoints = data.map(elem => elem.loc);
+    let geoDataPoints = data.map(elem =>
+        elem.pts.map(point =>
+            ({
+                type: point.loc.type,
+                coordinates: point.loc.coordinates,
                 ref1: binArray2FloatArray(point.ref1.$binary),
                 ref2: binArray2FloatArray(point.ref2.$binary)
+            })
+        ))
+        .reduce((a, b) => a.concat(b), [])
     console.log(geoDataPoints);
     geoJSONLayer.addData(geoDataPoints);
 }

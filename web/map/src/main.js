@@ -1,5 +1,5 @@
 $(window).on("load", () => {
-    getQuery()
+    getQuery(100)
         .done(data => {
             console.log(data.rows);
             plotPoints(geoJSONLayer, data.rows);

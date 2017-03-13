@@ -1,11 +1,11 @@
-function getQuery() {
-    const URL = "localhost";
-    const PORT = 28017;
-    const DB = "selene";
-    const COLLECTION = "images";
+const URL = "localhost";
+const PORT = 28017;
+const DB = "selene";
+const COLLECTION = "images";
 
+function getQuery(limit) {
     queryString = $.param({
-        limit: 100
+        limit: limit,
     })
     // console.log(queryString);
     uriQuery = `http://${URL}:${PORT}/${DB}/${COLLECTION}/?${queryString}`;

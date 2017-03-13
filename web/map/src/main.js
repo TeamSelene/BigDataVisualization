@@ -19,7 +19,6 @@ function plotPoints(geoJSONLayer, data) {
             })
         ))
         .reduce((a, b) => a.concat(b), [])
-    console.log(geoDataPoints);
     geoJSONLayer.addData(geoDataPoints);
 }
 

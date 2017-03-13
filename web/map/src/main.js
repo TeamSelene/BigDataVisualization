@@ -1,5 +1,5 @@
 $(window).on("load", () => {
-    getQuery()
+    getQuery(100)
         .done(data => {
             console.log(data.rows);
             plotPoints(geoJSONLayer, data.rows);
@@ -19,7 +19,6 @@ function plotPoints(geoJSONLayer, data) {
             })
         ))
         .reduce((a, b) => a.concat(b), [])
-    console.log(geoDataPoints);
     geoJSONLayer.addData(geoDataPoints);
 }
 

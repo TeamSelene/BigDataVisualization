@@ -6,8 +6,6 @@
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="src/Control.LatLng.js"></script>
 
@@ -108,9 +106,58 @@ var popup = null;
     'USGS_Map UV_LO': UV_LO
   };
 
-  L.control.layers(baseLayers).addTo(map);
-  let geoJSONLayer = L.geoJSON().addTo(map);
 
+  function onEachFeature(point, layer) {
+      layer.on('click', function (e) {
+        console.log(point);
+        var ctx = document.getElementById('refGraph');
+
+        let ref = point.ref1;
+        console.log(ref);
+
+        var chdata = {
+          labels: wavelengths,
+          datasets: [
+              {
+                  label: "REF 1",
+                  lineTension: 0.1,
+                  borderColor: "rgba(75,192,192,1)",
+                  pointBorderColor: "rgba(75,192,192,1)",
+                  pointBackgroundColor: "#fff",
+                  pointBorderWidth: 1,
+                  pointHoverRadius: 5,
+                  pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                  pointHoverBorderColor: "rgba(220,220,220,1)",
+                  pointHoverBorderWidth: 2,
+                  pointRadius: 1,
+                  pointHitRadius: 10,
+                  data: ref,
+                  spanGaps: false,
+              }
+          ]
+      };
+
+        var refGraph = new Chart(ctx, {
+          type: 'line',
+          data: chdata,
+          height: 400,
+          options: {
+            global: {
+                 responsive: true,
+                 maintainAspectRatio: false
+               },
+            showlines: true
+          }
+        }
+      );
+      });
+    }
+
+
+  L.control.layers(baseLayers).addTo(map);
+  let geoJSONLayer = L.geoJSON(null, {
+    onEachFeature: onEachFeature,
+  }).addTo(map);
 
 
 window.onload = function(){
@@ -123,55 +170,15 @@ window.onload = function(){
       .bindPopup(div)
       .openOn(map);
 
-      var data = [];
-      for(var i = 0; i < 269; i++){
-        data.push(Math.random());
-      }
+      // console.log(ref);
 
-      var ctx = document.getElementById('refGraph');
 
-      var chdata = {
-        labels: wavelengths,
-        datasets: [
-            {
-                label: "REF 1",
-                lineTension: 0.1,
-                borderColor: "rgba(75,192,192,1)",
-                pointBorderColor: "rgba(75,192,192,1)",
-                pointBackgroundColor: "#fff",
-                pointBorderWidth: 1,
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                pointHoverBorderColor: "rgba(220,220,220,1)",
-                pointHoverBorderWidth: 2,
-                pointRadius: 1,
-                pointHitRadius: 10,
-                data: data,
-                spanGaps: false,
-            }
-        ]
-    };
-
-      var refGraph = new Chart(ctx, {
-        type: 'line',
-        data: chdata,
-        height: 400,
-        options: {
-          global: {
-               responsive: true,
-               maintainAspectRatio: false
-             },
-          showlines: true
-        }
-      }
-    );
   })
 
 
 
 };
 </script>
-
 <script src="lib/base64js.min.js"></script>
 
 <script src="src/db.js"></script>

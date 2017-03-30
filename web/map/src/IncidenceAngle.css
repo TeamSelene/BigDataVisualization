@@ -1,0 +1,17 @@
+#slider-range 
+{
+    width: 80%;
+    margin-left: 1em;
+}
+
+#slider-range a {
+    text-decoration: none;
+    outline: none;
+}
+
+#min, #max {
+    width: 25px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}

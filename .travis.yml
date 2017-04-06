@@ -6,13 +6,12 @@ only:
 
 env:
   global:
-    - BINSTAR_USER: kelvinrr
+    - BINSTAR_USER: krodriguez
   matrix:
     - PYTHON_VERSION: 3.5
 
 os:
   - linux
-  - osx
 
 install:
   # We do this conditionally because it saves us some downloading if the
@@ -42,7 +41,6 @@ install:
   - conda config --add channels conda-forge
   - conda config --add channels menpo
   - conda config --add channels jlaura
-  - conda config --add channels kelvinrr
   - conda config --set ssl_verify false
   - conda install python=$PYTHON_VERSION
   - conda install -c conda-forge numpy
@@ -55,15 +53,6 @@ install:
   # Development installation
   - conda install pytest pytest-cov coverage sh anaconda-client
   - pip install coveralls
-
-    # Straight from the menpo team
-  - if [["$TRAVIS_OS_NAME" == "osx"]]; then
-      curl -o condaci.py https://raw.githubusercontent.com/menpo/condaci/v0.4.8/condaci.py;
-    else
-      wget https://raw.githubusercontent.com/menpo/condaci/v0.4.8/condaci.py -O condaci.py;
-    fi
-    # Build autocnet and push to anaconda cloud
-  - python condaci.py setup
 
 script:
   - pytest

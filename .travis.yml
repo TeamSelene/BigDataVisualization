@@ -12,7 +12,7 @@ env:
 
 os:
   - linux
-  
+
 install:
   # We do this conditionally because it saves us some downloading if the
   # version is the same.
@@ -53,16 +53,7 @@ install:
   # Development installation
   - conda install pytest pytest-cov coverage sh anaconda-client
   - pip install coveralls
-
-    # Straight from the menpo team
-  - if [["$TRAVIS_OS_NAME" == "osx"]]; then
-      curl -o condaci.py https://raw.githubusercontent.com/menpo/condaci/v0.4.8/condaci.py;
-    else
-      wget https://raw.githubusercontent.com/menpo/condaci/v0.4.8/condaci.py -O condaci.py;
-    fi
-    # Build autocnet and push to anaconda cloud
-  - python condaci.py setup
-
+  
 script:
   - pytest
   # clean up any remaining processes...

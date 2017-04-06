@@ -6,7 +6,7 @@ only:
 
 env:
   global:
-    - BINSTAR_USER: kelvinrr
+    - BINSTAR_USER: krodriguez
   matrix:
     - PYTHON_VERSION: 3.5
 
@@ -53,7 +53,7 @@ install:
   # Development installation
   - conda install pytest pytest-cov coverage sh anaconda-client
   - pip install coveralls
-  
+
 script:
   - pytest
   # clean up any remaining processes...

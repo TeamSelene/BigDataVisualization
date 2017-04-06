@@ -55,7 +55,7 @@ install:
   - pip install coveralls
 
 script:
-  - pytest --cov=pygs
+  - pytest
   # clean up any remaining processes...
   - if [ $TRAVIS_OS_NAME == "linux" ]; then killall5; fi
 

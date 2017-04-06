@@ -55,14 +55,13 @@ install:
   - pip install coveralls
 
 script:
-  - pytest
+  - pytest --cov=pygs
   # clean up any remaining processes...
   - if [ $TRAVIS_OS_NAME == "linux" ]; then killall5; fi
 
-after_success:
-  # Upload to anaconda and push to coveralls
-  - ~/miniconda/bin/python condaci.py build ./conda
-  - coveralls
+# after_success:
+#   # Upload to anaconda and push to coveralls
+#   - coveralls
 
 # notifications:
 #   webhooks:

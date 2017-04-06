@@ -11,8 +11,8 @@
 
   <style>
     #map {
-      width:2000px;
-      height: 1000px;
+      width:2556px;
+      height: 1500px;
     }
   </style>
 </head>
@@ -68,8 +68,8 @@ var popup = null;
                     layers: baseLayers
   });
 
-  var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/selene/wms', {
-     layers: 'feature'
+  var wmsLayer = L.tileLayer.wms('http://localhost:8080/geoserver/selene_test/wms', {
+     layers: 'rest'
      }).addTo(map);
 
   var LOLA_Steel = L.tileLayer.wms('https://planetarymaps.usgs.gov/cgi-bin/mapserv?map=/maps/earth/moon_simp_cyl.map', {
